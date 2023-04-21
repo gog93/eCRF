@@ -1,6 +1,6 @@
 package com.example.ecrf.repository;
 
-import com.example.ecrf.model.eCRF;
+import com.example.ecrf.model.eCRF1;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -9,14 +9,17 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.Optional;
 
-public interface eCRFRepository extends JpaRepository<eCRF, Long> {
-    Page<eCRF> findByStatus(String status, Pageable pageable);
+public interface eCRFRepository extends JpaRepository<eCRF1, Long> {
 
-    Optional<eCRF> findById(Long id);
+    Optional<eCRF1> findById(Long id);
 
-    @Query("SELECT e FROM eCRF e WHERE (LOWER(e.status) IS NULL OR LOWER(e.status) = 'draft') AND e.patId LIKE :patIdStartsWith%")
-    Page<eCRF> findAllByStatusIsNullOrDraftAndPatIdStartsWith(@Param("patIdStartsWith") String patIdStartsWith, Pageable pageable);
+    @Query("SELECT e FROM eCRF1 e WHERE (LOWER(e.ecrfStatus) IS NULL OR LOWER(e.ecrfStatus) = 'draft') AND e.patId LIKE %:patIdStartsWith%")
+    Page<eCRF1> findAllByEcrfStatusIsNullOrDraftAndPatIdStartsWith(@Param("patIdStartsWith") String patIdStartsWith, Pageable pageable);
 
-    Page<eCRF> findByStatusAndPatIdStartsWith(Pageable pageable, String status, String patIdStartsWith);
+    @Query("SELECT e FROM eCRF1 e WHERE (LOWER(e.ecrfStatus) = 'sent') AND e.patId LIKE %:patIdStartsWith%")
+    Page<eCRF1> findByEcrfStatusAndPatIdStartsWith(@Param("patIdStartsWith") String patIdStartsWith, Pageable pageable);
+
+    @Query("SELECT e FROM eCRF1 e WHERE (LOWER(e.ecrfStatus) = 'deleted') AND e.patId LIKE  %:patIdStartsWith%")
+    Page<eCRF1> findAllByEcrfStatusIsDeleteAndPatIdStartsWith(@Param("patIdStartsWith") String patIdStartsWith, Pageable pageable);
 
 }

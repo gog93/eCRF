@@ -1,6 +1,5 @@
 package com.example.ecrf.dto;
 
-import com.example.ecrf.model.eCRFStatus;
 import lombok.*;
 
 @AllArgsConstructor
@@ -11,7 +10,6 @@ import lombok.*;
 public class ResponseeCRF {
     private Long id;
     private String status;
-    private String caseFamily;
     private String created_At;
     private String filling_status;
     private String pat_id;

@@ -9,13 +9,12 @@ import lombok.*;
 @Getter
 @Builder
 @Entity
-@Table(name = "Registration1_details")
-public class eCRF {
+@Table(name = "eCRF1")
+public class eCRF1 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String status;
-    private String caseFamily;
+    private String ecrfStatus;
     private String created_At;
     private String filling_status;
     private String patId;

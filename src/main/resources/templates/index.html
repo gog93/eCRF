@@ -616,45 +616,73 @@
 </head>
 <style>
     #noteTable3 tr button {
-        background-color:  #35A270; /* Set the background color */
-        border: 2px solid white; /* Set the border color and width */
-        color: white; /* Set the text color */
-        padding: 10px 20px;
+        background-color: #35A270;
+        border: 2px #35A270;
+        color: white;
+        padding: 1px 15px;
+        border-radius: 10%;
+        width: 95px;
+        height: 31px;
+        font-size: 14px;
+        cursor: pointer;
     }
 
     #noteTable tr button {
-        background-color: #35A270; /* Set the background color */
-        border: 2px solid #35A270; /* Set the border color and width */
-        color: white; /* Set the text color */
-        padding: 10px 20px;
+        background-color: #35A270;
+        border: 2px #35A270;
+        color: white;
+        padding: 1px 15px;
+        border-radius: 10%;
+        width: 95px;
+        height: 31px;
+        font-size: 14px;
     }
 
     #noteTable2 tr button {
         background-color: white; /* Set the background color */
         border: 2px solid white; /* Set the border color and width */
         color: #35A270; /* Set the text color */
-        padding: 10px 20px;
+        padding: 1px 15px;
+        border-radius: 10%;
+        width: 95px;
+        height: 31px;
+        font-size: 14px;
     }
 
     #noteTable tr button:hover {
         background-color: white; /* Change the background color on hover */
-        border-color: white;
+        border-color: #35A270;
         color: #35A270; /* Change the border color on hover */
     }
 
     #noteTable2 tr button:hover {
         background-color: #35A270; /* Change the background color on hover */
-        border-color: #35A270;
+        border-color: white;
         color: white; /* Change the border color on hover */
     }
 
 
     #noteTable3 tr button:hover {
         background-color: white; /* Change the background color on hover */
-        border-color: white;
+        border-color: #35A270;
         color:#35A270; /* Change the border color on hover */
     }
-
+    .page-item.active .page-link {
+        background: #35A270 ;
+        border-color: #35A270 ;
+    }
+    #noteTable {
+        border-collapse: separate;
+        border-spacing: 0 10px; /* 10px spacing between rows */
+    }
+    #noteTable3 {
+        border-collapse: separate;
+        border-spacing: 0 10px; /* 10px spacing between rows */
+    }
+    #noteTable2 {
+        border-collapse: separate;
+        border-spacing: 0 10px; /* 10px spacing between rows */
+    }
     #noteTable td {
         background-color: white !important;
     }
@@ -846,7 +874,7 @@
                          data-id="5143e3e" data-element_type="widget" data-widget_type="button.default">
                         <div class="elementor-widget-container">
                             <div class="elementor-button-wrapper">
-                                <form th:object="${eCRF}"
+                                <form th:object="${eCRF1}"
                                       method="POST"
                                       action="/eCRF/medical.org/addnewecrf">
                                     <button
@@ -1154,7 +1182,7 @@
                          data-id="b7d64fe" data-element_type="widget" data-widget_type="button.default">
                         <div class="elementor-widget-container">
                             <div class="elementor-button-wrapper">
-                                <form th:object="${eCRF}"
+                                <form th:object="${eCRF1}"
                                       method="POST"
                                       action="/eCRF/medical.org/addnewecrf">
                                     <button
@@ -2050,7 +2078,7 @@
                         }
                         let noteRow = '<tr>' +
                             '<td>' + note.created_At + '</td>' +
-                            '<td>' + note.caseFamily + '</td>' +
+                            '<td>' + "eCRF1 compilation" + '</td>' +
                             '<td>' + note.patId + '</td>' +
                             '<td >' +
                             '<button type="button" id="' + buttonType + '" class="btn btn-primary add-customers-btn" data-id="' + dataId + '">' + buttonLabel + '</button>' +
@@ -2066,17 +2094,14 @@
                         'border-color': 'white',
                         'color': '#35A270'
                     });
-                    $('#noteTable tr').css({
-                        'background-color': 'white'
 
-                    });
 
                     $('.add-note-btn').mouseover(function () {
                         // Change the background color, text color, and border color of the button on hover
                         $(this).css({
                             'background-color': '#35A270',
                             'color': 'white',
-                            'border-color': 'white'
+                            'border-color': '#35A270'
                         });
                     });
 
@@ -2274,7 +2299,7 @@
                     $.each(response.content, (i, note) => {
                         let noteRow = '<tr>' +
                             '<td>' + note.created_At + '</td>' +
-                            '<td>' + note.caseFamily + '</td>' +
+                            '<td>' + "eCRF1 compilation" + '</td>' +
                             '<td>' + note.patId + '</td>' +
                             '<td>' +
                             '<td>' + '<button type="button" id="delete" class="btn btn-primary add-note-btn" data-id="' + note.id + '">Delete</button>' +
@@ -2450,7 +2475,7 @@
                     $.each(response.content, (i, note) => {
                         let noteRow = '<tr>' +
                             '<td>' + note.created_At + '</td>' +
-                            '<td>' + note.caseFamily + '</td>' +
+                            '<td>' + "eCRF1 compilation" + '</td>' +
                             '<td>' + note.patId + '</td>' +
                             '<td>' +
                             '<td>' + '<button type="button" id="restore" class="btn btn-primary add-note-btn" data-id="' + note.id + '">Restore</button>' +
