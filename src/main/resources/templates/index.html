@@ -2016,8 +2016,8 @@
                             buttonLabel= 'EDIT';
                             dataId=note.filling_status;
                         } else {
-                            buttonType = fillingStatus >= 100 ? 'send' : 'edit';
-                            buttonLabel = fillingStatus >= 100 ? 'SEND' : 'EDIT';
+                            buttonType = fillingStatus >= 100 ? 'sent' : 'edit';
+                            buttonLabel = fillingStatus >= 100 ? 'SENT' : 'EDIT';
                             dataId = fillingStatus >= 100 ? note.id : fillingStatus;
                         }
                         let noteRow = '<tr>' +
@@ -2151,9 +2151,9 @@
         $(document).on("click", ".btn", function() {
             var noteId = $(this).data('id');
 
-            if ($(this).attr('id') == 'send') {
+            if ($(this).attr('id') == 'sent') {
             $.ajax({
-                url:'/eCRF/changeStatus/send/' + noteId,
+                url:'/eCRF/changeStatus/sent/' + noteId,
                 type: 'GET',
                 contentType: 'application/json',
                 dataType: 'json',

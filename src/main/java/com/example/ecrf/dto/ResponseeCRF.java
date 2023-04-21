@@ -10,7 +10,7 @@ import lombok.*;
 @Builder
 public class ResponseeCRF {
     private Long id;
-    private eCRFStatus status;
+    private String status;
     private String caseFamily;
     private String created_At;
     private String filling_status;

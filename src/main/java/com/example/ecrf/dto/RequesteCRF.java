@@ -9,7 +9,7 @@ import lombok.*;
 @Getter
 @Builder
 public class RequesteCRF {
-    private eCRFStatus status;
+    private String status;
     private String caseFamily;
     private String created_At;
     private String filling_status;

@@ -1,22 +1,13 @@
 package com.example.ecrf.controller;
 
 import com.example.ecrf.dto.RequesteCRF;
-import com.example.ecrf.model.eCRF;
-import com.example.ecrf.model.eCRFStatus;
 import com.example.ecrf.service.eCRFService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 @Controller
 @RequestMapping("/eCRF")
@@ -38,18 +29,8 @@ public class eCRFController {
         return "edit";
     }
 
-    @PostMapping("/changeStatus/send")
-    public String changeStatusSend(@RequestParam( value = "eCRFId", required = false) Long id, RequesteCRF eCRF, Model model) {
-        model.addAttribute("eCRF", eCRF);
-        service.changeStatusSend(id);
-        return "redirect:/eCRF";
-    }
 
-    @PostMapping("/changeStatus/delete")
-    public String changeStatusDelete(@RequestParam( value = "eCRFId", required = false) Long id, Model model) {
-        service.changeStatusDelete(id);
-        return "redirect:/eCRF";
-    }
+
 
     @PostMapping("/medical.org/addnewecrf")
     public String addNewCaseFamily(RequesteCRF eCRF, Model model) {
